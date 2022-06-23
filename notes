@@ -1,0 +1,25 @@
+what classes we might have in this game:
+- entire deck
+  - can contain cards
+- dealer/hand can be attribute
+- suits are constant... 
+
+-methods:
+- deal, stay, shuffle
+  - these methods would belong to the Deck card
+- hit would belong to player and dealer classes
+- cards in hand are hand
+- deck is compilation of 52 cards
+- card in hand could go inside player class
+
+Outline:
+-classes
+-names of methods
+-where the methods go
+-what the methods do
+- for example
+  - king of hearts attributes include:
+    - suit
+    - points
+    - rank(what actually shows up on card face)
+
