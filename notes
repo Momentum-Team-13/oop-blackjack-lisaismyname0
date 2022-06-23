@@ -23,3 +23,5 @@ Outline:
     - points
     - rank(what actually shows up on card face)
 
+questions - why double indent in class?
+- class Player: vs class Player() (what do the parenthesis do)

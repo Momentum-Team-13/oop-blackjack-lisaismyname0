@@ -9,16 +9,16 @@ class Card:
     def show(self):
         print("{} of {}".format(self.point_value, self.suit))
 
-    def __str__(self):
-        return f"This card is a{self.suit} worth {self.point_value} points."
-
-    def deal(self):
-        return f"Card is a worth {self.point_value} point"
-        # this is essentially the hit function"""
-
-
-card = Card("Card", 6)
-card.show()
+    def determine_card_value(self, point_value):
+        if self.cards.show() == "Ace":
+            print("You drew an ace")
+            self.cards.point_value == input(
+                "Should your Ace be worth 1 or 11 points?")
+        else:
+            self.cards.point_value == self.cards.point_value
+        print(f"This card is worth {self.point_value} points ")
+        for card in self.hand:
+            print(f"{self.point_value}")
 
 
 class Deck:
@@ -27,9 +27,11 @@ class Deck:
         self.build()
 
     def build(self):
-        for suits in ["Spades", "Clubs", "Diamonds", "Hearts"]:
-            for value in range(1, 14):
+        for suits in ["spades", "clubs", "diamonds", "hearts"]:
+            for value in range(2, 11):
                 self.cards.append(Card(suits, value))
+            for face_cards in ["Jack", "Queen", "King", "Ace"]:
+                self.cards.append(Card(suits, face_cards))
 
     def show(self):
         for card in self.cards:
@@ -40,7 +42,41 @@ class Deck:
             r = random.randint(0, i)
             self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
 
+    def draw_a_card(self):
+        return self.cards.pop()
+
 
 deck = Deck()
+# deck.show()
+# prints the entire deck
 deck.shuffle()
-deck.show()
+drawn_card = deck.draw_a_card()
+
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
+
+    def initial_deal(self, deck):
+        while len(self.hand) < 2:
+            self.hand.append(deck.draw_a_card())
+
+    def hit_me(self, deck):
+        self.hand.append(deck.draw_a_card())
+
+    def showHand(self):
+        print(f"{self.name}'s hand")
+        for card in self.hand:
+            card.show()
+        #print(f"{card} is in {self.name}'s hand")
+
+
+player1 = Player("PLAYER ONE")
+dealer = Player("DEALER")
+
+player1.initial_deal(deck)
+dealer.initial_deal(deck)
+player1.showHand()
+dealer.showHand()
+determine_card_value(deck)
