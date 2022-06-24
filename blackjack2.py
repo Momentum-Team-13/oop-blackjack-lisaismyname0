@@ -1,24 +1,22 @@
 import random
 
+CARDVALUE_PAIRS = {"Ace": [1, 11], "Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6,
+                   "Seven": 7, "Eight": 8, "Nine": 9, "Ten": 10, "Jack": 10, "Queen": 10, "King": 10}
+SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
+
 
 class Card:
     def __init__(self, suit, point_value):
         self.suit = suit
         self.point_value = point_value
 
+    def __str__(self):
+        return f"{self.point_value[0]} of {self.suit}"
+
     def show(self):
         print("{} of {}".format(self.point_value, self.suit))
-        if self.point_value == "Ace":
-            self.point_value == input(
-                "Should your Ace be worth 1 or 11 points? ")
 
     def determine_card_value(self, point_value):
-        if self.cards.show() == "Ace":
-            print("You drew an ace")
-            self.cards.point_value == input(
-                "Should your Ace be worth 1 or 11 points?")
-        else:
-            self.cards.point_value == self.cards.point_value
         print(f"This card is worth {self.point_value} points ")
         for card in self.hand:
             print(f"{self.point_value}")
@@ -27,14 +25,13 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = []
-        self.build()
+        self.build(SUITS, CARDVALUE_PAIRS)
 
-    def build(self):
-        for suits in ["spades", "clubs", "diamonds", "hearts"]:
-            for value in range(2, 11):
-                self.cards.append(Card(suits, value))
-            for face_cards in ["Jack", "Queen", "King", "Ace"]:
-                self.cards.append(Card(suits, face_cards))
+    def build(self, suits, cardvalue_pairs):
+        for suit in suits:
+            for pair in cardvalue_pairs.items():
+                card = Card(suit, pair)
+                self.cards.append(card)
 
     def show(self):
         for card in self.cards:
@@ -50,7 +47,7 @@ class Deck:
 
 
 deck = Deck()
-# deck.show()
+deck.show()
 # prints the entire deck
 deck.shuffle()
 drawn_card = deck.draw_a_card()
