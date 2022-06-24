@@ -8,22 +8,20 @@ class Card:
 
     def show(self):
         print("{} of {}".format(self.point_value, self.suit))
-
-
-"""    def show(self):
-        if self.rank == "Ace":
+        if self.point_value == "Ace":
             self.point_value == input(
-                "Should your Ace be worth 1 or 11 points?")
+                "Should your Ace be worth 1 or 11 points? ")
+
+    def determine_card_value(self, point_value):
+        if self.cards.show() == "Ace":
             print("You drew an ace")
-        elif self.rank == "Jack":
-            self.point_value == 10
-        elif self.rank == "Queen":
-            self.point_value == 10
-        elif self.rank == "King":
-            self.point_value == 10
+            self.cards.point_value == input(
+                "Should your Ace be worth 1 or 11 points?")
         else:
-            self.point_value == f"{self.point_value}"
-            print("{} of {}".format(self.point_value, self.rank))"""
+            self.cards.point_value == self.cards.point_value
+        print(f"This card is worth {self.point_value} points ")
+        for card in self.hand:
+            print(f"{self.point_value}")
 
 
 class Deck:
@@ -50,17 +48,6 @@ class Deck:
     def draw_a_card(self):
         return self.cards.pop()
 
-    def determine_card_value(self, point_value):
-        if self.cards.show() == "Ace":
-            print("You drew an ace")
-            self.cards.point_value == input(
-                "Should your Ace be worth 1 or 11 points?")
-        else:
-            self.cards.point_value == self.cards.point_value
-        print(f"This card is worth {self.point_value} points")
-        for card in self.hand:
-            print(f"{self.point_value}")
-
 
 deck = Deck()
 # deck.show()
@@ -85,11 +72,6 @@ class Player:
         print(f"{self.name}'s hand")
         for card in self.hand:
             card.show()
-        #print(f"{card} is in {self.name}'s hand")
-
-    def determine_points(self):
-        for card in self.hand:
-            print(card.point_value)
 
 
 player1 = Player("PLAYER ONE")
@@ -99,5 +81,3 @@ player1.initial_deal(deck)
 dealer.initial_deal(deck)
 player1.showHand()
 dealer.showHand()
-player1.determine_points()
-dealer.determine_points()
