@@ -23,5 +23,6 @@ Outline:
     - points
     - rank(what actually shows up on card face)
 
-questions - why double indent in class?
-- class Player: vs class Player() (what do the parenthesis do)
+how to iterate through items in a class
+like for item in dict
+can you do for player in class Player

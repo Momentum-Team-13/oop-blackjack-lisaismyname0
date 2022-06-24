@@ -10,16 +10,20 @@ class Card:
         self.suit = suit
         self.point_value = point_value
 
-    def __str__(self):
-        return f"{self.point_value[0]} of {self.suit}"
-
     def show(self):
-        print("{} of {}".format(self.point_value, self.suit))
-
-    def determine_card_value(self, point_value):
-        print(f"This card is worth {self.point_value} points ")
-        for card in self.hand:
-            print(f"{self.point_value}")
+        if self.point_value[0] == "Ace":
+            self.point_value[1] == input("One or Eleven?")
+            if self.point_value[1] == "One" or "one" or 1:
+                self.point_value[1] == 1
+                print(
+                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points.")
+            elif self.point_value[1] == "Eleven" or "eleven" or 11:
+                self.point_value[1] == 11
+                print(
+                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points.")
+        else:
+            print(
+                f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points")
 
 
 class Deck:
@@ -75,7 +79,7 @@ player1 = Player("PLAYER ONE")
 dealer = Player("DEALER")
 
 
-def play_game():
+def play_round_one():
     player1.initial_deal(deck)
     dealer.initial_deal(deck)
     player1.showHand()
@@ -83,4 +87,4 @@ def play_game():
     print("End of round one")
 
 
-play_game()
+play_round_one()
