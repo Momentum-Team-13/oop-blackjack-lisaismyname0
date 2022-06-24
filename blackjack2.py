@@ -47,7 +47,7 @@ class Deck:
 
 
 deck = Deck()
-deck.show()
+# deck.show()
 # prints the entire deck
 deck.shuffle()
 drawn_card = deck.draw_a_card()
@@ -74,7 +74,13 @@ class Player:
 player1 = Player("PLAYER ONE")
 dealer = Player("DEALER")
 
-player1.initial_deal(deck)
-dealer.initial_deal(deck)
-player1.showHand()
-dealer.showHand()
+
+def play_game():
+    player1.initial_deal(deck)
+    dealer.initial_deal(deck)
+    player1.showHand()
+    dealer.showHand()
+    print("End of round one")
+
+
+play_game()
