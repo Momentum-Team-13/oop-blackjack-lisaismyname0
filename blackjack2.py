@@ -13,17 +13,18 @@ class Card:
     def show(self):
         if self.point_value[0] == "Ace":
             self.point_value[1] == input("One or Eleven?")
-            if self.point_value[1] == "One" or "one" or 1:
+            if input == "one" or "One" or 1:
                 self.point_value[1] == 1
                 print(
-                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points.")
-            elif self.point_value[1] == "Eleven" or "eleven" or 11:
+                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points")
+            elif input == "Eleven" or "eleven" or 11:
                 self.point_value[1] == 11
                 print(
-                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points.")
+                    f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points")
         else:
             print(
                 f"{self.point_value[0]} of {self.suit}. Worth: {self.point_value[1]} points")
+        return self.point_value[1]
 
 
 class Deck:
@@ -74,6 +75,12 @@ class Player:
         for card in self.hand:
             card.show()
 
+    def add_points(self,):
+        point_tally = []
+        for card in self.hand:
+            point_tally.append(card.point_value[1])
+            print(point_tally)
+
 
 player1 = Player("PLAYER ONE")
 dealer = Player("DEALER")
@@ -84,7 +91,17 @@ def play_round_one():
     dealer.initial_deal(deck)
     player1.showHand()
     dealer.showHand()
+    player1.add_points()
     print("End of round one")
 
 
+def round_two():
+    input("Player One: Hit or Stay? ")
+    if input == "Hit" or "hit":
+        print("Player One Chose Hit Me!")
+        player1.hit_me(deck)
+        player1.showHand()
+
+
 play_round_one()
+round_two()
